@@ -1,0 +1,4 @@
+# dsh-tada bundle layer: insert the notification plugin row.
+- insert:
+    - id: dsh-tada
+      name: dsh-tada

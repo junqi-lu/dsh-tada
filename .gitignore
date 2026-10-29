@@ -1,0 +1,22 @@
+# Dependencies (the bundle itself has none at runtime)
+node_modules/
+
+# Local scratch material
+research/
+preview/
+
+# Logs and local build/test artifacts
+*.log
+npm-debug.log*
+coverage/
+*.tgz
+
+# macOS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+
+.env*
+*.tsbuildinfo

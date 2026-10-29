@@ -1,0 +1,64 @@
+{
+  "name": "dsh-tada",
+  "version": "0.2.0",
+  "description": "Native desktop notifications for DeepSeek Harness: turn completion, errors, approvals, and questions.",
+  "author": "junqi-lu <jq_lu@outlook.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client/client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "lib",
+    "client/client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "notification",
+    "native",
+    "desktop"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "npm run build:client",
+    "build:client": "tsdown && node scripts/normalize-client-banner.mjs",
+    "watch:client": "tsdown --watch",
+    "preflight": "node scripts/preflight.mjs",
+    "check": "npm run build:client && node scripts/preflight.mjs && node --check index.js && node --test \"test/*.test.mjs\"",
+    "pretest": "npm run build:client",
+    "test": "node --test \"test/*.test.mjs\"",
+    "prepublishOnly": "npm run check"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "external": [
+        "react",
+        "@deepseek-ai/dsh-client-ui-primitives"
+      ]
+    }
+  },
+  "devDependencies": {
+    "tsdown": "^0.22.14"
+  }
+}

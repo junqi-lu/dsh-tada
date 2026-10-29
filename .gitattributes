@@ -1,0 +1,6 @@
+# Normalize text files to LF in the repository; keep scripts checkable.
+* text=auto eol=lf
+*.yml text
+*.json text
+*.md text
+*.svg text
